@@ -2,7 +2,7 @@ import { CiPhone } from "react-icons/ci";
 import { GrAccessibility } from "react-icons/gr";
 import css from "./Contact.module.css";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../../../redux/contactsOps";
+import { deleteContact } from "../../../../redux/contacts/operations";
 
 export default function Contact({ name, number, id }) {
   const dispatch = useDispatch();
