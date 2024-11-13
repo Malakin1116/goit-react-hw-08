@@ -33,14 +33,25 @@
 
 import { Route, Routes } from "react-router-dom";
 import ContactsPage from "../pages/ContactsPage";
+import NotFoundPage from "../pages/NotFoundPage";
+import Header from "../pages/Header";
+import SignInPage from "../pages/SignInPage";
+import SignUpPage from "../pages/SignUpPage";
+
+import Nav from "../pages/Nav";
 
 export default function App() {
   return (
     <div>
-      {/* <Header /> */}
+      <Nav />
 
       <Routes>
+        <Route path="/" element={<Header />} />
         <Route path="/contacts" element={<ContactsPage />} />
+        <Route path="/login" element={<SignInPage />} />
+        <Route path="/register" element={<SignUpPage />} />
+
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
