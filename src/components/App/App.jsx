@@ -1,32 +1,47 @@
-import { useDispatch, useSelector } from "react-redux";
-import ContactForm from "./ContactForm/ContactForm";
-import ContactList from "./ContactList/ContactList";
-import SearchBox from "./SearchBox/SearchBox";
-import { useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import ContactForm from "./ContactForm/ContactForm";
+// import ContactList from "./ContactList/ContactList";
+// import SearchBox from "./SearchBox/SearchBox";
+// import { useEffect } from "react";
 
-import { fetchContacts } from "../../redux/contacts/operations";
-import {
-  SelectErrorData,
-  SelectLoadingData,
-} from "../../redux/contacts/selectors";
+// import { fetchContacts } from "../../redux/contacts/operations";
+// import {
+//   SelectErrorData,
+//   SelectLoadingData,
+// } from "../../redux/contacts/selectors";
+
+// export default function App() {
+//   const dispatch = useDispatch();
+
+//   useEffect(() => {
+//     dispatch(fetchContacts());
+//   }, [dispatch]);
+
+//   const error = useSelector(SelectErrorData);
+//   const loading = useSelector(SelectLoadingData);
+
+//   return (
+//     <div>
+//       <h1>Phonebook</h1>
+//       <ContactForm />
+//       <SearchBox />
+//       {loading && <p>Loading ......</p>}
+//       {!error && <ContactList />}
+//     </div>
+//   );
+// }
+
+import { Route, Routes } from "react-router-dom";
+import ContactsPage from "../pages/ContactsPage";
 
 export default function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
-  const error = useSelector(SelectErrorData);
-  const loading = useSelector(SelectLoadingData);
-
   return (
     <div>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <SearchBox />
-      {loading && <p>Loading ......</p>}
-      {!error && <ContactList />}
+      {/* <Header /> */}
+
+      <Routes>
+        <Route path="/contacts" element={<ContactsPage />} />
+      </Routes>
     </div>
   );
 }
