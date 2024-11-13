@@ -46,10 +46,13 @@ const SignInPage = () => {
   return (
     <div className={css.container}>
       <Formik
-        initialValues={{ name: "", email: "" }}
+        initialValues={{ name: "", email: "", password: "" }}
         validationSchema={RegisterUserSchema}
-        onSubmit={(values) => {
+        onSubmit={(values, actions) => {
           console.log("Form submitted", values);
+          // dispatch();
+
+          actions.resetForm();
         }}
       >
         <Form className={css.form}>
@@ -78,6 +81,21 @@ const SignInPage = () => {
             />
             <ErrorMessage
               name="email"
+              component="span"
+              className={css.errorMessage}
+            />
+          </label>
+
+          <label className={css.label}>
+            <span className={css.labelText}>Password:</span>
+            <Field
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              className={css.input}
+            />
+            <ErrorMessage
+              name="password"
               component="span"
               className={css.errorMessage}
             />

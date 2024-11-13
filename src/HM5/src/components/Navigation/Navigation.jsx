@@ -16,7 +16,7 @@ export default function Navigation() {
       </li>
       <li className={css.li}>
         <NavLink to="/login" className={getNavLinkClass}>
-          SignInPage
+          Sign In Page
         </NavLink>
       </li>
       {/* <li className={css.li}>
