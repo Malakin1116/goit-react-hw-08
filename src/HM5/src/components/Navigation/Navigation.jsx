@@ -19,11 +19,6 @@ export default function Navigation() {
           Sign In Page
         </NavLink>
       </li>
-      {/* <li className={css.li}>
-        <NavLink to="/movies" className={getNavLinkClass}>
-          MoviesPage
-        </NavLink>
-      </li> */}
     </ul>
   );
 }

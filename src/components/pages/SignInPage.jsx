@@ -28,8 +28,11 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import css from "../pages/SignInPage.module.css";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
 
-const SignInPage = () => {
+import { apiRegisterUser } from "../../redux/auth/operations";
+
+export default function SignInPage() {
   const RegisterUserSchema = Yup.object({
     name: Yup.string()
       .min(2, "Name must be at least 2 characters")
@@ -43,6 +46,8 @@ const SignInPage = () => {
       .required("password is required"),
   });
 
+  const dispatch = useDispatch();
+
   return (
     <div className={css.container}>
       <Formik
@@ -50,7 +55,7 @@ const SignInPage = () => {
         validationSchema={RegisterUserSchema}
         onSubmit={(values, actions) => {
           console.log("Form submitted", values);
-          // dispatch();
+          dispatch(apiRegisterUser(values));
 
           actions.resetForm();
         }}
@@ -107,6 +112,4 @@ const SignInPage = () => {
       </Formik>
     </div>
   );
-};
-
-export default SignInPage;
+}
