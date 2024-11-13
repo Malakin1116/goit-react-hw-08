@@ -51,6 +51,7 @@ import Navigation from "./Navigation/Navigation";
 const HomePage = lazy(() => import("../../../components/pages/HomePage"));
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
+import SignUpPage from "../../../components/pages/SignUpPage";
 import SignInPage from "../../../components/pages/SignInPage";
 
 export default function App() {
@@ -61,6 +62,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
 
+          <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<SignInPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

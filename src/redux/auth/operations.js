@@ -34,10 +34,33 @@ export const apiRegisterUser = createAsyncThunk(
   "auth/registerUser",
   async (formData, thunkAPI) => {
     try {
-      const res = await authInstance.post("/users/signup", formData);
-      console.log("data: ", res.data);
+      const { data } = await authInstance.post("/users/signup", formData);
 
-      return res.data;
+      //     "user": {
+      //         "name": "ILOVEYOU",
+      //         "email": "malas4d@gmail.com"
+      //     },
+      //     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzM1MWY2NWM0OTVlZDZlMjVmMzk4ODQiLCJpYXQiOjE3MzE1MzQ2OTN9.EuQ3n2OBoilcGA_HaqWMBEkoto1gjYLjBiJuwX1f1VI"
+
+      setToken(data.token);
+      console.log("data: ", data);
+
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const apiLoginUser = createAsyncThunk(
+  "auth/loginUser",
+  async (formData, thunkAPI) => {
+    try {
+      const { data } = await authInstance.post("/users/login", formData);
+      setToken(data.token);
+      console.log("data: ", data);
+
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
