@@ -14,5 +14,7 @@
 //     }
 //   }
 // );
-=0978564321 1345679-8-96
-0.\\ \']loiuyreq ZXDVFHNK;.'
+
+export const authInstance = axios.create({
+  baseURL: "https://connections-api.goit.global/",
+});
