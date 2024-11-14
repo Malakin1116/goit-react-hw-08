@@ -45,7 +45,7 @@
 // }
 
 import { Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import Navigation from "./Navigation/Navigation";
 
 const HomePage = lazy(() => import("../../../components/pages/HomePage"));
@@ -53,8 +53,15 @@ const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
 import SignUpPage from "../../../components/pages/SignUpPage";
 import SignInPage from "../../../components/pages/SignInPage";
+import { useDispatch } from "react-redux";
+import { apiGetCurrentUser } from "../../../redux/auth/operations";
 
 export default function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(apiGetCurrentUser());
+  }, [dispatch]);
+
   return (
     <div>
       <Navigation />

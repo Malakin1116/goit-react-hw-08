@@ -28,18 +28,19 @@ export default function Navigation() {
           <span>Hello, {userData.name}</span>
         </li>
       ) : (
-        <li className={css.li}>
-          <NavLink to="/signup" className={getNavLinkClass}>
-            SignUp
-          </NavLink>
-        </li>
+        <>
+          <li className={css.li}>
+            <NavLink to="/signup" className={getNavLinkClass}>
+              SignUp
+            </NavLink>
+          </li>
+          <li className={css.li}>
+            <NavLink to="/login" className={getNavLinkClass}>
+              SignIn
+            </NavLink>
+          </li>
+        </>
       )}
-
-      <li className={css.li}>
-        <NavLink to="/login" className={getNavLinkClass}>
-          SignIn
-        </NavLink>
-      </li>
     </ul>
   );
 }
