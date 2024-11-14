@@ -2,19 +2,26 @@ import css from "./Navigation.module.css";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import {
   selectUserDataIsLoggedIn,
   selectUserData,
 } from "../../../../redux/auth/slice";
+import { apiLogoutUser } from "../../../../redux/auth/operations";
 
 const getNavLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.isActive);
 };
 
 export default function Navigation() {
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectUserDataIsLoggedIn);
   const userData = useSelector(selectUserData);
+
+  const onLogout = () => {
+    dispatch(apiLogoutUser());
+  };
 
   return (
     <ul className={css.ul}>
@@ -26,6 +33,9 @@ export default function Navigation() {
       {isLoggedIn ? (
         <li className={css.li}>
           <span>Hello, {userData.name}</span>
+          <button onClick={onLogout} type="button">
+            Logout
+          </button>
         </li>
       ) : (
         <>

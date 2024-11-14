@@ -62,3 +62,17 @@ export const apiGetCurrentUser = createAsyncThunk(
     }
   }
 );
+
+export const apiLogoutUser = createAsyncThunk(
+  "auth/LogoutUser",
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await authInstance.post("/users/logout");
+      clearToken();
+      console.log("data: ", data);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

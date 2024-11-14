@@ -53,14 +53,21 @@ const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
 import SignUpPage from "../../../components/pages/SignUpPage";
 import SignInPage from "../../../components/pages/SignInPage";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { apiGetCurrentUser } from "../../../redux/auth/operations";
+import { selectUserDataIsRefreshing } from "../../../redux/auth/slice";
 
 export default function App() {
   const dispatch = useDispatch();
+  const isRefrashing = useSelector(selectUserDataIsRefreshing);
+
   useEffect(() => {
     dispatch(apiGetCurrentUser());
   }, [dispatch]);
+
+  if (isRefrashing) {
+    return <div>Refrashing...</div>;
+  }
 
   return (
     <div>

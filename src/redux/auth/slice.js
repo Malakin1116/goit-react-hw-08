@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { apiRegisterUser, apiLoginUser } from "./operations";
+import {
+  apiRegisterUser,
+  apiLoginUser,
+  apiGetCurrentUser,
+  apiLogoutUser,
+} from "./operations";
 
 const INITIAL_STATE = {
   userData: {
@@ -48,6 +53,32 @@ export const slice = createSlice({
       .addCase(apiLoginUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
+      })
+
+      .addCase(apiGetCurrentUser.pending, (state) => {
+        state.isRefreshing = true;
+        state.error = null;
+      })
+      .addCase(apiGetCurrentUser.fulfilled, (state, action) => {
+        state.isRefreshing = false;
+        state.userData = action.payload;
+        state.isLoggedIn = true;
+      })
+      .addCase(apiGetCurrentUser.rejected, (state, action) => {
+        state.isRefreshing = false;
+        state.error = action.payload;
+      })
+
+      .addCase(apiLogoutUser.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(apiLogoutUser.fulfilled, () => {
+        return INITIAL_STATE;
+      })
+      .addCase(apiLogoutUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });
