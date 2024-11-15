@@ -32,11 +32,12 @@
 // }
 
 import { Route, Routes } from "react-router-dom";
-import ContactsPage from "../pages/ContactsPage";
+// import ContactsPage from "../pages/ContactsPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import Header from "../pages/Header";
 import SignInPage from "../pages/SignInPage";
 import SignUpPage from "../pages/SignUpPage";
+import ContactForm from "../../components/App/ContactForm/ContactForm";
 
 import Nav from "../pages/Nav";
 
@@ -47,7 +48,8 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Header />} />
-        <Route path="/contacts" element={<ContactsPage />} />
+        {/* <Route path="/contactsform" element={<ContactForm />} /> */}
+        <Route path="/contacts" element={<ContactForm />} />
         <Route path="/login" element={<SignInPage />} />
         <Route path="/register" element={<SignUpPage />} />
 

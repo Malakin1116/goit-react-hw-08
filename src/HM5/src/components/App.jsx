@@ -59,6 +59,8 @@ import { selectUserDataIsRefreshing } from "../../../redux/auth/slice";
 import ContactList from "../../../components/App/ContactList/ContactList";
 import PrivateRoute from "../../../components/pages/PrivatRoute/PrivateRoute";
 import RestrictedRoute from "../../../components/pages/RestrictedRoute/RestrictedRoute";
+// Добавити лейзи Лоудинг це повязано з суспонсе який вже стоїть
+import ContactForm from "../../../components/App/ContactForm/ContactForm";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -82,6 +84,11 @@ export default function App() {
           <Route
             path="/contacts"
             element={<PrivateRoute component={<ContactList />} />}
+          />
+
+          <Route
+            path="/contactsform"
+            element={<PrivateRoute component={<ContactForm />} />}
           />
 
           <Route
