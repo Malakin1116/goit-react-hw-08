@@ -30,6 +30,11 @@ export default function Navigation() {
           HomePages
         </NavLink>
       </li>
+      <li className={css.li}>
+        <NavLink to="/contacts" className={getNavLinkClass}>
+          Contacts
+        </NavLink>
+      </li>
       {isLoggedIn ? (
         <li className={css.li}>
           <span>Hello, {userData.name}</span>

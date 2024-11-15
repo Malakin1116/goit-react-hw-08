@@ -56,6 +56,9 @@ import SignInPage from "../../../components/pages/SignInPage";
 import { useDispatch, useSelector } from "react-redux";
 import { apiGetCurrentUser } from "../../../redux/auth/operations";
 import { selectUserDataIsRefreshing } from "../../../redux/auth/slice";
+import ContactList from "../../../components/App/ContactList/ContactList";
+import PrivateRoute from "../../../components/pages/PrivatRoute/PrivateRoute";
+import RestrictedRoute from "../../../components/pages/RestrictedRoute/RestrictedRoute";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -76,8 +79,19 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
 
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/login" element={<SignInPage />} />
+          <Route
+            path="/contacts"
+            element={<PrivateRoute component={<ContactList />} />}
+          />
+
+          <Route
+            path="/signup"
+            element={<RestrictedRoute component={<SignUpPage />} />}
+          />
+          <Route
+            path="/login"
+            element={<RestrictedRoute component={<SignInPage />} />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
