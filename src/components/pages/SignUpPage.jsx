@@ -3,7 +3,7 @@ import css from "../pages/SignUpPage.module.css";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 
-import { apiLoginUser } from "../../redux/auth/operations";
+import { apiRegisterUser } from "../../redux/auth/operations";
 
 export default function SignUpPage() {
   const RegisterUserSchema = Yup.object({
@@ -28,7 +28,7 @@ export default function SignUpPage() {
         validationSchema={RegisterUserSchema}
         onSubmit={(values, actions) => {
           console.log("Form submitted", values);
-          dispatch(apiLoginUser(values));
+          dispatch(apiRegisterUser(values));
 
           actions.resetForm();
         }}
