@@ -105,6 +105,9 @@ const NotFoundPage = lazy(() => import("../NotFounderPage/NotFounderPage"));
 const RegistrationPage = lazy(() =>
   import("../RagistrationPage/RegistrationPage")
 );
+const RestrictedRoute = lazy(() =>
+  import("../RestrictedRoute/RestrictedRoute")
+);
 const LoginPage = lazy(() => import("../LoginPage/LoginPage"));
 const ContactList = lazy(() =>
   import("../ContactsPage/ContactsList/ContactList")
@@ -122,13 +125,19 @@ export default function App() {
 
   return (
     <div>
-      <Layout />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="signup" element={<RegistrationPage />} />
-            <Route path="login" element={<LoginPage />} />
+            <Route index element={<HomePage />} />
+            <Route
+              path="signup"
+              element={<RestrictedRoute component={<RegistrationPage />} />}
+            />
+            <Route
+              path="login"
+              element={<RestrictedRoute component={<LoginPage />} />}
+            />
+
             <Route
               path="contacts"
               element={<PrivateRoute component={<ContactList />} />}

@@ -5,7 +5,7 @@ import css from "./UserMenu.module.css";
 
 export default function UserMenu() {
   const dispatch = useDispatch();
-  const userData = useSelector(selectUserData);
+  const userData = useSelector(selectUserData) || {};
 
   const onLogout = () => {
     dispatch(apiLogoutUser());
@@ -13,7 +13,7 @@ export default function UserMenu() {
 
   return (
     <div className={css.userMenu}>
-      <span className={css.greeting}>Hello, {userData.name}</span>
+      <span className={css.greeting}>Hello, {userData.name || "Guest"}</span>
       <button onClick={onLogout} className={css.logoutButton}>
         Logout
       </button>
