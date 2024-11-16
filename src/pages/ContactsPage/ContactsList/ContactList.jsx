@@ -5,6 +5,7 @@ import { apiGetContacts } from "../../../redux/contacts/operations";
 
 import { selectFilteredContacts } from "../../../redux/contacts/selectors";
 import Contact from "./Contact/Contact";
+import SearchBox from "../../ContactsPage/SearchBox/SearchBox";
 
 export default function ContactList() {
   const filteredContacts = useSelector(selectFilteredContacts);
@@ -15,14 +16,22 @@ export default function ContactList() {
   }, [dispatch]);
 
   if (!filteredContacts || filteredContacts.length === 0) {
-    return <p>No contacts yet</p>;
+    return (
+      <div>
+        <SearchBox />
+        <p>No contacts yet</p>
+      </div>
+    );
   }
 
   return (
-    <ul>
-      {filteredContacts.map(({ id, name, number }) => (
-        <Contact key={id} id={id} name={name} number={number} />
-      ))}
-    </ul>
+    <div>
+      <SearchBox />
+      <ul>
+        {filteredContacts.map(({ id, name, number }) => (
+          <Contact key={id} id={id} name={name} number={number} />
+        ))}
+      </ul>
+    </div>
   );
 }
