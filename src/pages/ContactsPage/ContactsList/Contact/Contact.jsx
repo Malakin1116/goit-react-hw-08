@@ -28,6 +28,26 @@
 //   );
 // }
 
-export default function Contact() {
-  return <span>Contact</span>;
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../../../redux/contacts/operations";
+import css from "./Contact.module.css";
+
+export default function Contact({ id, name, number }) {
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    if (window.confirm(`Are you sure delete ${name}?`)) {
+      dispatch(deleteContact(id));
+    }
+  };
+
+  return (
+    <li className={css.contactItem}>
+      <p className={css.contactName}>{name}</p>
+      <p className={css.contactNumber}>{number}</p>
+      <button type="button" className={css.deleteButton} onClick={handleDelete}>
+        X
+      </button>
+    </li>
+  );
 }

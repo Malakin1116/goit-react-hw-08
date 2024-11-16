@@ -74,14 +74,10 @@ const getNavLinkClass = ({ isActive }) =>
 
 export default function Navigation() {
   return (
-    <nav>
-      <ul className={css.ul}>
-        <li className={css.li}>
-          <NavLink to="/" className={getNavLinkClass}>
-            Home
-          </NavLink>
-        </li>
-      </ul>
-    </nav>
+    <li className={css.li}>
+      <NavLink to="/" className={getNavLinkClass}>
+        Home
+      </NavLink>
+    </li>
   );
 }

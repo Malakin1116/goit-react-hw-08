@@ -7,19 +7,17 @@ const getNavLinkClass = ({ isActive }) =>
 
 export default function AuthNav() {
   return (
-    <nav>
-      <ul className={css.ul}>
-        <li className={css.li}>
-          <NavLink to="/signup" className={getNavLinkClass}>
-            Registration
-          </NavLink>
-        </li>
-        <li className={css.li}>
-          <NavLink to="/login" className={getNavLinkClass}>
-            SignIn
-          </NavLink>
-        </li>
-      </ul>
-    </nav>
+    <>
+      <li className={css.li}>
+        <NavLink to="/signup" className={getNavLinkClass}>
+          Registration
+        </NavLink>
+      </li>
+      <li className={css.li}>
+        <NavLink to="/login" className={getNavLinkClass}>
+          SignIn
+        </NavLink>
+      </li>
+    </>
   );
 }

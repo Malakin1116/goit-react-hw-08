@@ -2,34 +2,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
 import { apiGetContacts } from "../../../redux/contacts/operations";
-import { SelectuserData } from "../../../redux/contacts/selectors";
+
 import { selectFilteredContacts } from "../../../redux/contacts/selectors";
+import Contact from "./Contact/Contact";
 
 export default function ContactList() {
   const filteredContacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
-  const itemsContact = useSelector(SelectuserData);
 
   useEffect(() => {
     dispatch(apiGetContacts());
   }, [dispatch]);
 
+  if (!filteredContacts || filteredContacts.length === 0) {
+    return <p>No contacts yet</p>;
+  }
+
   return (
-    <div>
-      {Array.isArray(itemsContact) && itemsContact.length === 0 && (
-        <p>No contact yet</p>
-      )}
-      {Array.isArray(itemsContact) && itemsContact.length > 0 && (
-        <ul>
-          {itemsContact.map((i) => (
-            <li key={i.id}>
-              <p>{i.name}</p>
-              <p>{i.number}</p>
-              <button type="button">X</button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <ul>
+      {filteredContacts.map(({ id, name, number }) => (
+        <Contact key={id} id={id} name={name} number={number} />
+      ))}
+    </ul>
   );
 }

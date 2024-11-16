@@ -77,23 +77,22 @@ export const apiLogoutUser = createAsyncThunk(
   }
 );
 
-//
-// export const refreshUser = createAsyncThunk(
-//   "auth/refresh",
-//   async (_, thunkAPI) => {
-//     const state = thunkAPI.getState();
-//     const token = state.auth.token;
+export const refreshUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
 
-//     if (!token) {
-//       return thunkAPI.rejectWithValue("Token not found");
-//     }
+    if (!token) {
+      return thunkAPI.rejectWithValue("Token not found");
+    }
 
-//     try {
-//       setToken(token);
-//       const { data } = await authInstance.get("/users/current");
-//       return data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+    try {
+      setToken(token);
+      const { data } = await authInstance.get("/users/current");
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

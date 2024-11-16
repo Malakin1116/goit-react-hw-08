@@ -4,6 +4,7 @@ import {
   apiLoginUser,
   apiGetCurrentUser,
   apiLogoutUser,
+  refreshUser,
 } from "./operations";
 
 const INITIAL_STATE = {
@@ -79,6 +80,19 @@ export const slice = createSlice({
       .addCase(apiLogoutUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(refreshUser.pending, (state) => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.isRefreshing = false;
+        state.user = action.payload;
+        state.isLoggedIn = true;
+      })
+      .addCase(refreshUser.rejected, (state) => {
+        state.isRefreshing = false;
+        state.token = null;
+        state.isLoggedIn = false;
       });
   },
 });

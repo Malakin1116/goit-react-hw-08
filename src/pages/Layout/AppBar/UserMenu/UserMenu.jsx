@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { apiLogoutUser } from "../../../../redux/auth/operations";
 import { selectUserData } from "../../../../redux/auth/slice";
 import css from "./UserMenu.module.css";
+import { NavLink } from "react-router-dom";
 
 export default function UserMenu() {
   const dispatch = useDispatch();
@@ -12,11 +13,20 @@ export default function UserMenu() {
   };
 
   return (
-    <div className={css.userMenu}>
+    <li className={css.userMenu}>
       <span className={css.greeting}>Hello, {userData.name || "Guest"}</span>
       <button onClick={onLogout} className={css.logoutButton}>
         Logout
       </button>
-    </div>
+
+      <ul className={css.ul}>
+        <li className={css.li}>
+          <NavLink to="/contacts">contacts</NavLink>
+        </li>
+        <li className={css.li}>
+          <NavLink to="/contactsform">contactsform</NavLink>
+        </li>
+      </ul>
+    </li>
   );
 }
