@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { apiLogoutUser } from "../../../../redux/auth/operations";
-import { selectUserData } from "../../../../redux/auth/slice";
+import { selectUserData } from "../../../../redux/auth/selectors";
 import css from "./UserMenu.module.css";
 import { NavLink } from "react-router-dom";
 
@@ -21,10 +21,10 @@ export default function UserMenu() {
 
       <ul className={css.ul}>
         <li className={css.li}>
-          <NavLink to="/contacts">contacts</NavLink>
+          <NavLink to="/contacts">Contacts</NavLink>
         </li>
         <li className={css.li}>
-          <NavLink to="/contactsform">contactsform</NavLink>
+          <NavLink to="/contactsform">Add contact</NavLink>
         </li>
       </ul>
     </li>

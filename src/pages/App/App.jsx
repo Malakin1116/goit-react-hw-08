@@ -21,7 +21,7 @@ const ContactList = lazy(() =>
 const ContactForm = lazy(() =>
   import("../ContactsPage/ContactForm/ContactForm")
 );
-import { selectUserDataIsRefreshing } from "../../redux/auth/slice";
+import { selectUserDataIsRefreshing } from "../../redux/auth/selectors";
 
 export default function App() {
   const dispatch = useDispatch();
