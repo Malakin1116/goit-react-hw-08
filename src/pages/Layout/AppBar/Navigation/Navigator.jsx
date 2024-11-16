@@ -98,28 +98,31 @@ export default function Navigation() {
           HomePages
         </NavLink>
       </li>
-      <li className={css.li}>
-        <NavLink to="/contacts" className={getNavLinkClass}>
-          Contacts
-        </NavLink>
-      </li>
-      <li className={css.li}>
-        <NavLink to="/contactsform" className={getNavLinkClass}>
-          contactsform
-        </NavLink>
-      </li>
+
       {isLoggedIn ? (
-        <li className={css.li}>
-          <span>Hello, {userData.name}</span>
-          <button onClick={onLogout} type="button">
-            Logout
-          </button>
-        </li>
+        <>
+          <li className={css.li}>
+            <NavLink to="/contacts" className={getNavLinkClass}>
+              Contacts
+            </NavLink>
+          </li>
+          <li className={css.li}>
+            <NavLink to="/contactsform" className={getNavLinkClass}>
+              contactsform
+            </NavLink>
+          </li>
+          <li className={css.li}>
+            <span>Hello, {userData.name}</span>
+            <button onClick={onLogout} type="button">
+              Logout
+            </button>
+          </li>
+        </>
       ) : (
         <>
           <li className={css.li}>
             <NavLink to="/signup" className={getNavLinkClass}>
-              SignUp
+              Registration
             </NavLink>
           </li>
           <li className={css.li}>

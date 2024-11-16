@@ -63,8 +63,39 @@
 //   );
 // }
 
+import { Routes, Route } from "react-router-dom";
+
 import Layout from "../Layout/Layout";
+import HomePage from "../HomePage/HomePage";
+import NotFoundPage from "../NotFounderPage/NotFounderPage";
+import RegistrationPage from "../RagistrationPage/RegistrationPage";
+import LoginPage from "../LoginPage/LoginPage";
 
 export default function App() {
-  return <Layout />;
+  return (
+    <div>
+      <Layout />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+
+        <Route path="/signup" element={<RegistrationPage />} />
+        <Route path="/login" element={<LoginPage />} />
+
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </div>
+  );
 }
+
+{
+  /* <Routes>
+//         <Route path="/" element={<Header />} />
+//         {/* <Route path="/contactsform" element={<ContactForm />} /> */
+}
+//         <Route path="/contacts" element={<ContactForm />} />
+//         <Route path="/login" element={<SignInPage />} />
+//         <Route path="/register" element={<SignUpPage />} />
+
+//         <Route path="*" element={<NotFoundPage />} />
+//       </Routes> */}
