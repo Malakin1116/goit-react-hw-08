@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { refreshUser } from "../../redux/auth/operations";
 
 import Layout from "../Layout/Layout";
-import PrivateRoute from "../PrivatRoute/PrivateRoute";
+import PrivateRoute from "../../components/PrivatRoute/PrivateRoute";
 
 const HomePage = lazy(() => import("../HomePage/HomePage"));
 const NotFoundPage = lazy(() => import("../NotFounderPage/NotFounderPage"));
@@ -12,7 +12,7 @@ const RegistrationPage = lazy(() =>
   import("../RagistrationPage/RegistrationPage")
 );
 const RestrictedRoute = lazy(() =>
-  import("../RestrictedRoute/RestrictedRoute")
+  import("../../components/RestrictedRoute/RestrictedRoute")
 );
 const LoginPage = lazy(() => import("../LoginPage/LoginPage"));
 const ContactList = lazy(() =>
