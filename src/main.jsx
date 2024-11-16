@@ -17,7 +17,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import App from "./HM5/src/components/App";
+import App from "./pages/App";
 import { Provider } from "react-redux";
 
 import { PersistGate } from "redux-persist/integration/react";

@@ -76,3 +76,24 @@ export const apiLogoutUser = createAsyncThunk(
     }
   }
 );
+
+// для чого він?
+export const refreshUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
+
+    if (!token) {
+      return thunkAPI.rejectWithValue("Token not found");
+    }
+
+    try {
+      setToken(token);
+      const { data } = await authInstance.get("/users/current");
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

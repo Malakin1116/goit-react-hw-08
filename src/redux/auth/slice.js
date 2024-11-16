@@ -7,7 +7,7 @@ import {
 } from "./operations";
 
 const INITIAL_STATE = {
-  userData: {
+  user: {
     name: null,
     email: null,
   },
@@ -31,7 +31,7 @@ export const slice = createSlice({
       })
       .addCase(apiRegisterUser.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.userData = action.payload.user;
+        state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
@@ -46,7 +46,7 @@ export const slice = createSlice({
       })
       .addCase(apiLoginUser.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.userData = action.payload.user;
+        state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
@@ -61,7 +61,7 @@ export const slice = createSlice({
       })
       .addCase(apiGetCurrentUser.fulfilled, (state, action) => {
         state.isRefreshing = false;
-        state.userData = action.payload;
+        state.user = action.payload;
         state.isLoggedIn = true;
       })
       .addCase(apiGetCurrentUser.rejected, (state, action) => {

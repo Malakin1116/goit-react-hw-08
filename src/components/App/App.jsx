@@ -31,30 +31,30 @@
 //   );
 // }
 
-import { Route, Routes } from "react-router-dom";
-// import ContactsPage from "../pages/ContactsPage";
-import NotFoundPage from "../pages/NotFoundPage";
-import Header from "../pages/Header";
-import SignInPage from "../pages/SignInPage";
-import SignUpPage from "../pages/SignUpPage";
-import ContactForm from "../../components/App/ContactForm/ContactForm";
+// import { Route, Routes } from "react-router-dom";
+// // import ContactsPage from "../pages/ContactsPage";
+// import NotFoundPage from "../pages/NotFoundPage";
+// import Header from "../pages/Header";
+// import SignInPage from "../pages/SignInPage";
+// import SignUpPage from "../pages/SignUpPage";
+// import ContactForm from "../../components/App/ContactForm/ContactForm";
 
-import Nav from "../pages/Nav";
+// import Nav from "../pages/Nav";
 
-export default function App() {
-  return (
-    <div>
-      <Nav />
+// export default function App() {
+//   return (
+//     <div>
+//       <Nav />
 
-      <Routes>
-        <Route path="/" element={<Header />} />
-        {/* <Route path="/contactsform" element={<ContactForm />} /> */}
-        <Route path="/contacts" element={<ContactForm />} />
-        <Route path="/login" element={<SignInPage />} />
-        <Route path="/register" element={<SignUpPage />} />
+//       <Routes>
+//         <Route path="/" element={<Header />} />
+//         {/* <Route path="/contactsform" element={<ContactForm />} /> */}
+//         <Route path="/contacts" element={<ContactForm />} />
+//         <Route path="/login" element={<SignInPage />} />
+//         <Route path="/register" element={<SignUpPage />} />
 
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </div>
-  );
-}
+//         <Route path="*" element={<NotFoundPage />} />
+//       </Routes>
+//     </div>
+//   );
+// }
