@@ -45,6 +45,12 @@ import { authInstance } from "../auth/operations";
 export const apiGetContacts = createAsyncThunk(
   "contacts/getAllContacts",
   async (_, ThunkAPI) => {
+    const state = ThunkAPI.getState();
+    const token = state.auth.token;
+
+    if (!token) {
+      return ThunkAPI.rejectWithValue("No token");
+    }
     try {
       const res = await authInstance.get("/contacts");
       console.log("Contacts fetched:", res.data);
