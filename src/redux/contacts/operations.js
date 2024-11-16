@@ -53,7 +53,7 @@ export const apiGetContacts = createAsyncThunk(
     }
     try {
       const res = await authInstance.get("/contacts");
-      console.log("Contacts fetched:", res.data);
+
       return res.data;
     } catch (error) {
       return ThunkAPI.rejectWithValue(error.message);
