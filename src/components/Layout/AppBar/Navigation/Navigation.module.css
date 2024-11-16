@@ -1,0 +1,39 @@
+
+.ul {
+    padding: 0;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: rgb(153, 204, 187);
+    display: flex;
+    gap: 150px;
+    justify-content: center;
+    margin: 0;
+}
+
+li {
+    border: 1px solid rgb(104, 103, 103); 
+    list-style-type: none; 
+    text-decoration: none; 
+    border-radius: 8px; 
+    background-color: rgb(230, 230, 250); 
+    padding: 10px; 
+}
+
+  .link {
+    color: rgb(7, 70, 7); 
+  }
+  
+  .link:visited {
+    color: rgb(7, 70, 7); 
+  }
+  
+  .isActive {
+    color: orangered; 
+  }
+  
+  .link:hover {
+    color: orangered; 
+  }
+  
+  
