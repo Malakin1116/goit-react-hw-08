@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-import { apiGetContacts } from "../../../redux/contacts/operations";
+import { apiGetContacts } from "../../redux/contacts/operations";
+import { selectFilteredContacts } from "../../redux/contacts/selectors";
 
-import { selectFilteredContacts } from "../../../redux/contacts/selectors";
 import Contact from "./Contact/Contact";
-import SearchBox from "../../ContactsPage/SearchBox/SearchBox";
+import SearchBox from "../SearchBox/SearchBox";
 
 export default function ContactList() {
   const filteredContacts = useSelector(selectFilteredContacts);

@@ -5,15 +5,14 @@ import { refreshUser } from "../../redux/auth/operations";
 
 import Layout from "../Layout/Layout";
 import PrivateRoute from "../../components/PrivatRoute/PrivateRoute";
+import RestrictedRoute from "../../components/RestrictedRoute/RestrictedRoute";
 
 const HomePage = lazy(() => import("../HomePage/HomePage"));
 const NotFoundPage = lazy(() => import("../NotFounderPage/NotFounderPage"));
 const RegistrationPage = lazy(() =>
   import("../RagistrationPage/RegistrationPage")
 );
-const RestrictedRoute = lazy(() =>
-  import("../../components/RestrictedRoute/RestrictedRoute")
-);
+
 const LoginPage = lazy(() => import("../LoginPage/LoginPage"));
 const ContactsPage = lazy(() => import("../ContactsPage/ContactsPage"));
 

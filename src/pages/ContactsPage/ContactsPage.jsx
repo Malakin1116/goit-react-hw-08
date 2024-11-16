@@ -1,5 +1,5 @@
-import ContactList from "../components/ContactList";
-import ContactForm from "../components/ContactForm";
+import ContactList from "../../components/ContactsList/ContactList";
+import ContactForm from "../../components/ContactForm/ContactForm";
 export default function ContactsPage() {
   return (
     <div>
