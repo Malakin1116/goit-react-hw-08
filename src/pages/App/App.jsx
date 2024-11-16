@@ -3,7 +3,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { refreshUser } from "../../redux/auth/operations";
 
-import Layout from "../Layout/Layout";
+import Layout from "../../components/Layout/Layout";
 import PrivateRoute from "../../components/PrivatRoute/PrivateRoute";
 import RestrictedRoute from "../../components/RestrictedRoute/RestrictedRoute";
 
