@@ -40,16 +40,14 @@
 // );
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// import axios from "axios";
 import { authInstance } from "../auth/operations";
-
-// axios.defaults.baseURL = "https://connections-api.goit.global";
 
 export const apiGetContacts = createAsyncThunk(
   "contacts/getAllContacts",
   async (_, ThunkAPI) => {
     try {
       const res = await authInstance.get("/contacts");
+      console.log("Contacts fetched:", res.data);
       return res.data;
     } catch (error) {
       return ThunkAPI.rejectWithValue(error.message);

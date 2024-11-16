@@ -1,0 +1,31 @@
+.ul {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.li {
+  margin: 0;
+}
+
+.link {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #007bff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.isActive {
+  font-weight: bold;
+  background-color: #0056b3;
+  color: #fff;
+}

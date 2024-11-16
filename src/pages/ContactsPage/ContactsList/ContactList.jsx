@@ -1,30 +1,9 @@
-// import css from "./ContactList.module.css";
-// import Contact from "./Contact/Contact";
-// import { useSelector } from "react-redux";
-// import { selectFilteredContacts } from "../../../redux/contacts/selectors";
-
-// export default function ContactList() {
-//   const filteredContacts = useSelector(selectFilteredContacts);
-
-//   return (
-//     <ul className={css.ul}>
-//       {filteredContacts.length > 0 &&
-//         filteredContacts.map((user) => (
-//           <li key={user.id}>
-//             <Contact id={user.id} name={user.name} number={user.number} />
-//           </li>
-//         ))}
-//     </ul>
-//   );
-// }
-
-// import css from "./ContactList.module.css";
-// import Contact from "./Contact/Contact";
 import { useDispatch, useSelector } from "react-redux";
-import { selectFilteredContacts } from "../../../redux/contacts/selectors";
 import { useEffect } from "react";
+
 import { apiGetContacts } from "../../../redux/contacts/operations";
 import { SelectuserData } from "../../../redux/contacts/selectors";
+import { selectFilteredContacts } from "../../../redux/contacts/selectors";
 
 export default function ContactList() {
   const filteredContacts = useSelector(selectFilteredContacts);
@@ -47,7 +26,7 @@ export default function ContactList() {
               <p>{i.name}</p>
               <p>{i.number}</p>
               <button type="button">X</button>
-            </li> // Відображаємо ім'я контакту
+            </li>
           ))}
         </ul>
       )}
