@@ -15,12 +15,8 @@ const RestrictedRoute = lazy(() =>
   import("../../components/RestrictedRoute/RestrictedRoute")
 );
 const LoginPage = lazy(() => import("../LoginPage/LoginPage"));
-const ContactList = lazy(() =>
-  import("../ContactsPage/ContactsList/ContactList")
-);
-const ContactForm = lazy(() =>
-  import("../ContactsPage/ContactForm/ContactForm")
-);
+const ContactsPage = lazy(() => import("../ContactsPage/ContactsPage"));
+
 import { selectUserDataIsRefreshing } from "../../redux/auth/selectors";
 
 export default function App() {
@@ -43,7 +39,7 @@ export default function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route
-              path="signup"
+              path="register"
               element={<RestrictedRoute component={<RegistrationPage />} />}
             />
             <Route
@@ -53,12 +49,9 @@ export default function App() {
 
             <Route
               path="contacts"
-              element={<PrivateRoute component={<ContactList />} />}
+              element={<PrivateRoute component={<ContactsPage />} />}
             />
-            <Route
-              path="contactsform"
-              element={<PrivateRoute component={<ContactForm />} />}
-            />
+
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

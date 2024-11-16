@@ -23,9 +23,6 @@ export default function UserMenu() {
         <li className={css.li}>
           <NavLink to="/contacts">Contacts</NavLink>
         </li>
-        <li className={css.li}>
-          <NavLink to="/contactsform">Add contact</NavLink>
-        </li>
       </ul>
     </li>
   );

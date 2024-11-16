@@ -9,7 +9,7 @@ export default function AuthNav() {
   return (
     <>
       <li className={css.li}>
-        <NavLink to="/signup" className={getNavLinkClass}>
+        <NavLink to="/register" className={getNavLinkClass}>
           Registration
         </NavLink>
       </li>
