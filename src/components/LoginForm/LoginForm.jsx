@@ -1,5 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import css from "./LoginForm.module.css"; // Стилі для форми
+import css from "./LoginForm.module.css";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/operations";

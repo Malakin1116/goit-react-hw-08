@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { apiGetContacts, addContact, deleteContact } from "./operations";
+import { logout } from "../auth/operations";
+
+const INITIAL_STATE = {
+  items: [],
+  loading: false,
+  error: null,
+};
 
 export const slice = createSlice({
   name: "contacts",
-  initialState: {
-    items: [],
-    loading: false,
-    error: null,
-  },
+  initialState: INITIAL_STATE,
   extraReducers: (builder) => {
     builder
       .addCase(apiGetContacts.pending, (state) => {
@@ -45,6 +48,17 @@ export const slice = createSlice({
       .addCase(deleteContact.rejected, (state) => {
         state.loading = false;
         state.error = true;
+      })
+      .addCase(logout.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(logout.fulfilled, () => {
+        return INITIAL_STATE;
+      })
+      .addCase(logout.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
       });
   },
 });
